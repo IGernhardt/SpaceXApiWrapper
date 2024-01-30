@@ -9,8 +9,8 @@ namespace SpaceXApiWrapper
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseInMemoryDatabase(databaseName: "IncidentReports");
+            optionsBuilder.UseInMemoryDatabase(databaseName: "IncidentsDb");
         }
-        public DbSet<Incident> IncidentReports { get; set; }
+        public DbSet<Incident> Incidents { get; set; }
     }
 }

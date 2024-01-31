@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SpaceXApiWrapper.Models;
 using SpaceXApiWrapper.Repositories;
 
 namespace SpaceXApiWrapper.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AdminController : ControllerBase
@@ -14,6 +16,7 @@ namespace SpaceXApiWrapper.Controllers
             _incidentRepository = incidentRepository;
         }
 
+        [Authorize(Roles = "Admin,Reader")]
         [HttpGet]
         public ActionResult<List<Incident>> Get()
         {
@@ -28,6 +31,7 @@ namespace SpaceXApiWrapper.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin,Reader")]
         [HttpGet("{id:guid}")]
         public ActionResult<Incident> GetIncident(Guid id)
         {
@@ -46,6 +50,7 @@ namespace SpaceXApiWrapper.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult<Incident> AddIncident(Incident incident)
         {
@@ -69,6 +74,7 @@ namespace SpaceXApiWrapper.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public ActionResult<Incident> UpsertIncident(Incident incident)
         {
@@ -87,6 +93,7 @@ namespace SpaceXApiWrapper.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id:guid}")]
         public ActionResult DeleteIncident(Guid id)
         {

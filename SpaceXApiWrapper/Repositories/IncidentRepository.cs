@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SpaceXApiWrapper.Models;
+﻿using SpaceXApiWrapper.Models;
 using System.Reflection;
 
 namespace SpaceXApiWrapper.Repositories

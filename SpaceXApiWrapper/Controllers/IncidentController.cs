@@ -8,10 +8,10 @@ namespace SpaceXApiWrapper.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class AdminController : ControllerBase
+    public class IncidentController : ControllerBase
     {
         readonly IIncidentRepository _incidentRepository;
-        public AdminController(IIncidentRepository incidentRepository)
+        public IncidentController(IIncidentRepository incidentRepository)
         {
             _incidentRepository = incidentRepository;
         }
